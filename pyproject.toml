@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "twitter-clone"
+version = "0.1.0"
+description = ""
+authors = ["AndrewTarev <153756623+AndrewTarev@users.noreply.github.com>"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.1"
+asyncpg = "^0.29.0"
+alembic = "^1.13.2"
+pydantic-settings = "^2.3.4"
+gunicorn = "^22.0.0"
+greenlet = "^3.0.3"
+faker = "^26.3.0"
+loguru = "^0.7.2"
+aiofiles = "^24.1.0"
+bcrypt = "^4.2.0"
+passlib = "^1.7.4"
+pyjwt = {extras = ["crypto"], version = "^2.9.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+pytest = "^8.3.2"
+pytest-asyncio = "^0.24.0"
+black = "^24.8.0"
+mypy = "^1.11.2"
+
+# poetry add pytest --group dev
+# poetry install --only main
+# poetry install --without test,docs
+
+[tool.isort]
+profile = "black"
+line_length = 90
+multi_line_output = 3
+skip_gitignore = true
+skip_glob = ["**/migrations/*", "**/settings/*"]
+src_paths = ["./src"]
+
+
+[tool.mypy]
+files = "my_project"
+ignore_missing_imports = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+pretty = true
+strict_optional = true
+follow_imports = "silent"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
